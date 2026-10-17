@@ -41,9 +41,11 @@ class Registro extends BaseController
         ];
 
         if ($existente) {
+            $datos['administrador'] = 0;
             $modelo->update($existente['id'], $datos);
         } else {
             $datos['correo'] = $correo;
+            $datos['administrador'] = 0;
             $modelo->insert($datos);
         }
 

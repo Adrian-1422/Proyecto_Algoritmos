@@ -68,6 +68,14 @@ abstract class BaseController extends Controller
             }
         }
 
+        $id = session()->get('usuario_id');
+        if ($id) {
+            $cuenta = model(\App\Models\UsuarioModel::class)->find($id);
+            session()->set('es_administrador', $cuenta && (int) $cuenta['administrador'] === 1 ? 1 : 0);
+        } else {
+            session()->remove('es_administrador');
+        }
+
         // Preload any models, libraries, etc, here.
         // $this->session = service('session');
     }

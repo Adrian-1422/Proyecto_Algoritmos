@@ -14,6 +14,7 @@ class UsuarioModel extends Model
         'correo',
         'contrasena_hash',
         'activo',
+        'administrador',
         'token_activacion',
         'token_recordarme',
         'token_recuperacion',
