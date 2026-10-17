@@ -23,7 +23,7 @@ class Tareas extends BaseController
         $pagina = min($pagina, $paginas);
         $this->filtrar($modelo, $busqueda);
 
-        return view('tareas', [
+        return vista('tareas', [
             'tareas'   => $modelo->orderBy('creado_en', 'DESC')->orderBy('id', 'DESC')->findAll($this->porPagina, ($pagina - 1) * $this->porPagina),
             'pagina'   => $pagina,
             'busqueda' => $busqueda,
@@ -37,11 +37,11 @@ class Tareas extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('tarea_nueva');
+            return vista('tarea_nueva');
         }
 
         if (! $this->validate($this->reglas())) {
-            return view('tarea_nueva');
+            return vista('tarea_nueva');
         }
 
         model(TareaModel::class)->insert([
@@ -62,7 +62,7 @@ class Tareas extends BaseController
             return redirect()->to('/tareas');
         }
 
-        return view('tarea', ['tarea' => $tarea]);
+        return vista('tarea', ['tarea' => $tarea]);
     }
 
     public function editar(int $id)
@@ -78,11 +78,11 @@ class Tareas extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('tarea_editar', ['tarea' => $tarea]);
+            return vista('tarea_editar', ['tarea' => $tarea]);
         }
 
         if (! $this->validate($this->reglas())) {
-            return view('tarea_editar', ['tarea' => $tarea]);
+            return vista('tarea_editar', ['tarea' => $tarea]);
         }
 
         $modelo->update($id, [
@@ -105,7 +105,7 @@ class Tareas extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('tarea_eliminar', ['tarea' => $tarea]);
+            return vista('tarea_eliminar', ['tarea' => $tarea]);
         }
 
         $modelo->delete($id);

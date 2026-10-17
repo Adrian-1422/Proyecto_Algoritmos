@@ -9,7 +9,7 @@ class Recuperacion extends BaseController
     public function index()
     {
         if (! $this->request->is('post')) {
-            return view('recuperar');
+            return vista('recuperar');
         }
 
         if (! $this->validate([
@@ -18,11 +18,11 @@ class Recuperacion extends BaseController
                 'rules' => 'required|valid_email|max_length[150]',
             ],
         ])) {
-            return view('recuperar');
+            return vista('recuperar');
         }
 
         if (! $this->correoListo()) {
-            return view('recuperar', [
+            return vista('recuperar', [
                 'error' => lang('App.correoNoConfigurado'),
             ]);
         }
@@ -35,7 +35,7 @@ class Recuperacion extends BaseController
             ->first();
 
         if (! $usuario) {
-            return view('recuperar', ['aviso' => $aviso]);
+            return vista('recuperar', ['aviso' => $aviso]);
         }
 
         $token = bin2hex(random_bytes(32));
@@ -50,12 +50,12 @@ class Recuperacion extends BaseController
                 'recuperacion_expira' => null,
             ]);
 
-            return view('recuperar', [
+            return vista('recuperar', [
                 'error' => lang('App.correoNoEnviadoRecuperacion'),
             ]);
         }
 
-        return view('recuperar', ['aviso' => $aviso]);
+        return vista('recuperar', ['aviso' => $aviso]);
     }
 
     public function nueva(string $token)
@@ -68,7 +68,7 @@ class Recuperacion extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('nueva_contrasena', ['token' => $token]);
+            return vista('nueva_contrasena', ['token' => $token]);
         }
 
         if (! $this->validate([
@@ -81,7 +81,7 @@ class Recuperacion extends BaseController
                 'rules' => 'required|matches[contrasena]',
             ],
         ])) {
-            return view('nueva_contrasena', ['token' => $token]);
+            return vista('nueva_contrasena', ['token' => $token]);
         }
 
         $usuario = $this->usuarioPorToken($modelo, $token);

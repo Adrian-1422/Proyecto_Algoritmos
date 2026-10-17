@@ -8,7 +8,7 @@ class Acceso extends BaseController
 {
     public function entrar()
     {
-        return view('entrar');
+        return vista('entrar');
     }
 
     public function autenticar()
@@ -23,7 +23,7 @@ class Acceso extends BaseController
                 'rules' => 'required',
             ],
         ])) {
-            return view('entrar');
+            return vista('entrar');
         }
 
         $modelo = model(UsuarioModel::class);
@@ -31,13 +31,13 @@ class Acceso extends BaseController
         $contrasena = $this->request->getPost('contrasena');
 
         if (! $usuario || ! password_verify($contrasena, $usuario['contrasena_hash'])) {
-            return view('entrar', [
+            return vista('entrar', [
                 'error' => lang('App.credencialesInvalidas'),
             ]);
         }
 
         if ((int) $usuario['activo'] !== 1) {
-            return view('entrar', [
+            return vista('entrar', [
                 'error' => lang('App.cuentaInactiva'),
             ]);
         }

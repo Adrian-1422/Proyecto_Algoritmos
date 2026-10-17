@@ -6,7 +6,7 @@ class Inicio extends BaseController
 {
     public function index(): string
     {
-        return view('bienvenida');
+        return vista('bienvenida');
     }
 
     public function idioma(string $idioma)

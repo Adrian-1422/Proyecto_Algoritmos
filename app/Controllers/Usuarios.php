@@ -20,7 +20,7 @@ class Usuarios extends BaseController
         $pagina = max(1, (int) $this->request->getGet('pagina'));
         $pagina = min($pagina, $paginas);
 
-        return view('usuarios', [
+        return vista('usuarios', [
             'usuarios' => $modelo->orderBy('creado_en', 'DESC')->orderBy('id', 'DESC')->findAll($this->porPagina, ($pagina - 1) * $this->porPagina),
             'pagina'   => $pagina,
         ]);
@@ -33,11 +33,11 @@ class Usuarios extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('usuario_nuevo');
+            return vista('usuario_nuevo');
         }
 
         if (! $this->validate($this->reglas(null, true))) {
-            return view('usuario_nuevo');
+            return vista('usuario_nuevo');
         }
 
         model(UsuarioModel::class)->insert([
@@ -62,7 +62,7 @@ class Usuarios extends BaseController
             return redirect()->to('/usuarios');
         }
 
-        return view('usuario', ['usuario' => $usuario]);
+        return vista('usuario', ['usuario' => $usuario]);
     }
 
     public function editar(int $id)
@@ -78,13 +78,13 @@ class Usuarios extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('usuario_editar', ['usuario' => $usuario]);
+            return vista('usuario_editar', ['usuario' => $usuario]);
         }
 
         $nueva = (string) $this->request->getPost('contrasena');
         $repetir = (string) $this->request->getPost('repetir_contrasena');
         if (! $this->validate($this->reglas($id, $nueva !== '' || $repetir !== ''))) {
-            return view('usuario_editar', ['usuario' => $usuario]);
+            return vista('usuario_editar', ['usuario' => $usuario]);
         }
 
         $datos = [
@@ -119,11 +119,11 @@ class Usuarios extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('usuario_eliminar', ['usuario' => $usuario]);
+            return vista('usuario_eliminar', ['usuario' => $usuario]);
         }
 
         if ((int) $admin['id'] === $id) {
-            return view('usuario_eliminar', [
+            return vista('usuario_eliminar', [
                 'usuario' => $usuario,
                 'error'   => lang('App.noEliminarPropio'),
             ]);

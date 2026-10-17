@@ -9,15 +9,15 @@ class Registro extends BaseController
     public function index()
     {
         if (! $this->request->is('post')) {
-            return view('registro');
+            return vista('registro');
         }
 
         if (! $this->validate($this->reglas())) {
-            return view('registro');
+            return vista('registro');
         }
 
         if (! $this->correoListo()) {
-            return view('registro', [
+            return vista('registro', [
                 'error' => lang('App.correoNoConfigurado'),
             ]);
         }
@@ -27,7 +27,7 @@ class Registro extends BaseController
         $existente = $modelo->where('correo', $correo)->first();
 
         if ($existente && (int) $existente['activo'] === 1) {
-            return view('registro', [
+            return vista('registro', [
                 'error' => lang('App.correoRegistrado'),
             ]);
         }
@@ -50,7 +50,7 @@ class Registro extends BaseController
         }
 
         if (! $this->enviarActivacion($correo, $token)) {
-            return view('registro', [
+            return vista('registro', [
                 'error' => lang('App.correoNoEnviado'),
             ]);
         }

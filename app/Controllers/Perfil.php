@@ -13,7 +13,7 @@ class Perfil extends BaseController
             return redirect()->to('/entrar');
         }
 
-        return view('perfil', ['usuario' => $usuario]);
+        return vista('perfil', ['usuario' => $usuario]);
     }
 
     public function confirmar()
@@ -24,11 +24,11 @@ class Perfil extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('perfil_confirmar');
+            return vista('perfil_confirmar');
         }
 
         if (! password_verify((string) $this->request->getPost('contrasena'), $usuario['contrasena_hash'])) {
-            return view('perfil_confirmar', [
+            return vista('perfil_confirmar', [
                 'error' => lang('App.contrasenaActualIncorrecta'),
             ]);
         }
@@ -50,7 +50,7 @@ class Perfil extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('perfil_editar', ['usuario' => $usuario]);
+            return vista('perfil_editar', ['usuario' => $usuario]);
         }
 
         if (! $this->validate([
@@ -63,7 +63,7 @@ class Perfil extends BaseController
                 'rules' => 'required|valid_email|max_length[150]|is_unique[usuarios.correo,id,' . $usuario['id'] . ']',
             ],
         ])) {
-            return view('perfil_editar', ['usuario' => $usuario]);
+            return vista('perfil_editar', ['usuario' => $usuario]);
         }
 
         model(UsuarioModel::class)->update($usuario['id'], [
@@ -84,11 +84,11 @@ class Perfil extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('perfil_contrasena');
+            return vista('perfil_contrasena');
         }
 
         if (! password_verify((string) $this->request->getPost('contrasena_actual'), $usuario['contrasena_hash'])) {
-            return view('perfil_contrasena', [
+            return vista('perfil_contrasena', [
                 'error' => lang('App.contrasenaActualIncorrecta'),
             ]);
         }
@@ -103,7 +103,7 @@ class Perfil extends BaseController
                 'rules' => 'required|matches[contrasena]',
             ],
         ])) {
-            return view('perfil_contrasena');
+            return vista('perfil_contrasena');
         }
 
         model(UsuarioModel::class)->update($usuario['id'], [
@@ -123,7 +123,7 @@ class Perfil extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('perfil_foto');
+            return vista('perfil_foto');
         }
 
         if (! $this->validate([
@@ -138,13 +138,13 @@ class Perfil extends BaseController
                 ],
             ],
         ])) {
-            return view('perfil_foto');
+            return vista('perfil_foto');
         }
 
         $archivo = $this->request->getFile('foto');
         $extension = strtolower((string) $archivo->guessExtension());
         if (! in_array($extension, ['jpg', 'jpeg', 'png'], true)) {
-            return view('perfil_foto', ['error' => lang('App.errorFotoTipo')]);
+            return vista('perfil_foto', ['error' => lang('App.errorFotoTipo')]);
         }
 
         $this->borrarArchivo($usuario['id'], $usuario['foto'] ?? null);
@@ -163,7 +163,7 @@ class Perfil extends BaseController
         }
 
         if (! $this->request->is('post')) {
-            return view('perfil_eliminar');
+            return vista('perfil_eliminar');
         }
 
         $this->borrarArchivo($usuario['id'], $usuario['foto'] ?? null);
