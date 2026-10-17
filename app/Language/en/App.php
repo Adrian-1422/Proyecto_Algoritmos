@@ -66,4 +66,11 @@ return [
     'volverListado'       => '<< back to index',
     'eliminar'            => 'Delete',
     'noEliminarPropio'    => 'You cannot delete your own account.',
+    'tareas'              => 'Tasks',
+    'tarea'               => 'Task',
+    'nuevaTarea'          => 'New Task',
+    'editarTarea'         => 'Edit Task',
+    'descripcion'         => 'Description',
+    'buscar'              => 'Search',
+    'id'                  => 'ID',
 ];

@@ -23,3 +23,8 @@ $routes->match(['GET', 'POST'], 'usuarios/nuevo', 'Usuarios::nuevo');
 $routes->get('usuarios/(:num)', 'Usuarios::ver/$1');
 $routes->match(['GET', 'POST'], 'usuarios/editar/(:num)', 'Usuarios::editar/$1');
 $routes->match(['GET', 'POST'], 'usuarios/eliminar/(:num)', 'Usuarios::eliminar/$1');
+$routes->get('tareas', 'Tareas::index');
+$routes->match(['GET', 'POST'], 'tareas/nueva', 'Tareas::nueva');
+$routes->get('tareas/(:num)', 'Tareas::ver/$1');
+$routes->match(['GET', 'POST'], 'tareas/editar/(:num)', 'Tareas::editar/$1');
+$routes->match(['GET', 'POST'], 'tareas/eliminar/(:num)', 'Tareas::eliminar/$1');

@@ -116,6 +116,16 @@ table.lista td {
     text-align: left;
 }
 
+.tareas {
+    margin: 8px 36px 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.tareas li {
+    margin: 8px 0;
+}
+
 .cancelar {
     background: #f0a0a8;
 }

@@ -66,4 +66,11 @@ return [
     'volverListado'       => '<< volver al listado',
     'eliminar'            => 'Eliminar',
     'noEliminarPropio'    => 'No puedes eliminar tu propia cuenta.',
+    'tareas'              => 'Tareas',
+    'tarea'               => 'Tarea',
+    'nuevaTarea'          => 'Nueva tarea',
+    'editarTarea'         => 'Editar tarea',
+    'descripcion'         => 'Descripción',
+    'buscar'              => 'Buscar',
+    'id'                  => 'ID',
 ];

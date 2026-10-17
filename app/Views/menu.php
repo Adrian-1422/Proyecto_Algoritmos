@@ -11,6 +11,7 @@
             <?php if (session()->get('es_administrador')): ?>
                 <a href="<?= site_url('usuarios') ?>"<?><?= esc(lang('App.usuarios')) ?></a>
             <?php endif ?>
+            <a href="<?= site_url('tareas') ?>"<?><?= esc(lang('App.tareas')) ?></a>
             <a href="<?= site_url('salir') ?>"><?= esc(lang('App.salir')) ?></a>
         <?php else: ?>
             <a href="<?= site_url('registro') ?>"><?= esc(lang('App.registro')) ?></a>
