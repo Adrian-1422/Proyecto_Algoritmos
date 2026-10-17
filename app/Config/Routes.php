@@ -18,3 +18,8 @@ $routes->match(['GET', 'POST'], 'perfil/editar', 'Perfil::editar');
 $routes->match(['GET', 'POST'], 'perfil/contrasena', 'Perfil::contrasena');
 $routes->match(['GET', 'POST'], 'perfil/foto', 'Perfil::foto');
 $routes->match(['GET', 'POST'], 'perfil/eliminar', 'Perfil::eliminar');
+$routes->get('usuarios', 'Usuarios::index');
+$routes->match(['GET', 'POST'], 'usuarios/nuevo', 'Usuarios::nuevo');
+$routes->get('usuarios/(:num)', 'Usuarios::ver/$1');
+$routes->match(['GET', 'POST'], 'usuarios/editar/(:num)', 'Usuarios::editar/$1');
+$routes->match(['GET', 'POST'], 'usuarios/eliminar/(:num)', 'Usuarios::eliminar/$1');

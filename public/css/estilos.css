@@ -103,6 +103,19 @@ h1 {
     margin: 8px 36px 16px;
 }
 
+table.lista {
+    width: calc(100% - 72px);
+    margin: 8px 36px 16px;
+    border-collapse: collapse;
+}
+
+table.lista th,
+table.lista td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #222;
+    text-align: left;
+}
+
 .cancelar {
     background: #f0a0a8;
 }
