@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    color: #222;
+    background: repeating-linear-gradient(
+        -45deg,
+        #eef8ee,
+        #eef8ee 8px,
+        #e3f3e3 8px,
+        #e3f3e3 16px
+    );
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 36px 0;
+}
+
+.barra div {
+    white-space: nowrap;
+}
+
+.barra a {
+    color: #222;
+    text-decoration: none;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.barra div:last-child a:last-child {
+    margin-right: 0;
+}
+
+h1 {
+    margin: 18px 36px;
+    font-size: 34px;
+    font-weight: normal;
+}
+
+.saludo {
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.formulario {
+    margin: 8px 36px 24px;
+}
+
+.formulario label {
+    display: inline-block;
+    width: 190px;
+    margin-bottom: 12px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="password"] {
+    width: 340px;
+    background: #8ec8f0;
+    border: 1px solid #222;
+    padding: 8px;
+}
+
+.casilla {
+    margin: 4px 0 12px;
+}
+
+.casilla label {
+    width: auto;
+}
+
+.boton {
+    display: inline-block;
+    background: #8fd18f;
+    border: 1px solid #222;
+    color: #222;
+    text-decoration: none;
+    font: inherit;
+    padding: 8px 16px;
+    margin-right: 8px;
+}
+
+.azul {
+    background: #8ec8f0;
+}
+
+.datos,
+.acciones,
+.paginas,
+.volver {
+    margin: 8px 36px 16px;
+}
+
+.cancelar {
+    background: #f0a0a8;
+}
+
+.error,
+.aviso,
+.errors {
+    margin: 8px 36px;
+}
+
+.error,
+.errors {
+    color: #9b1c1c;
+}
