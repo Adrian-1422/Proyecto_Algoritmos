@@ -29,6 +29,10 @@ body {
     font-size: 18px;
 }
 
+.barra a.activo {
+    color: #1a73c7;
+}
+
 .barra div:last-child a:last-child {
     margin-right: 0;
 }
@@ -61,6 +65,11 @@ h1 {
     background: #8ec8f0;
     border: 1px solid #222;
     padding: 8px;
+}
+
+.formulario input.buscar {
+    width: 160px;
+    background: #fff;
 }
 
 .casilla {

@@ -1,3 +1,4 @@
+<?php $seccion = service('uri')->getSegment(1); ?>
 <nav class="barra">
     <div>
         <a href="<?= site_url('/') ?>"><?= esc(lang('App.inicio')) ?></a>
@@ -7,11 +8,11 @@
     <div>
         <?php if (session()->get('usuario_id')): ?>
             <span class="saludo"><?= esc(lang('App.hola')) ?>, <?= esc(session()->get('usuario_nombre')) ?></span>
-            <a href="<?= site_url('perfil') ?>"<?><?= esc(lang('App.perfil')) ?></a>
+            <a href="<?= site_url('perfil') ?>"<?= $seccion === 'perfil' ? ' class="activo"' : '' ?>><?= esc(lang('App.perfil')) ?></a>
             <?php if (session()->get('es_administrador')): ?>
-                <a href="<?= site_url('usuarios') ?>"<?><?= esc(lang('App.usuarios')) ?></a>
+                <a href="<?= site_url('usuarios') ?>"<?= $seccion === 'usuarios' ? ' class="activo"' : '' ?>><?= esc(lang('App.usuarios')) ?></a>
             <?php endif ?>
-            <a href="<?= site_url('tareas') ?>"<?><?= esc(lang('App.tareas')) ?></a>
+            <a href="<?= site_url('tareas') ?>"<?= $seccion === 'tareas' ? ' class="activo"' : '' ?>><?= esc(lang('App.tareas')) ?></a>
             <a href="<?= site_url('salir') ?>"><?= esc(lang('App.salir')) ?></a>
         <?php else: ?>
             <a href="<?= site_url('registro') ?>"><?= esc(lang('App.registro')) ?></a>

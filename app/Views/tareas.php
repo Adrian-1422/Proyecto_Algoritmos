@@ -6,7 +6,7 @@
 <form class="formulario" method="get" action="<?= site_url('tareas') ?>">
     <div>
         <label for="q"><?= esc(lang('App.buscar')) ?></label>
-        <input type="text" id="q" name="q" value="<?= esc($busqueda) ?>">
+        <input class="buscar" type="text" id="q" name="q" value="<?= esc($busqueda) ?>">
     </div>
 </form>
 <ul class="tareas">
