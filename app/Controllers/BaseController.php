@@ -51,6 +51,23 @@ abstract class BaseController extends Controller
             service('language')->setLocale($idioma);
         }
 
+        $recordarme = get_cookie('recordarme');
+        if (! session()->get('usuario_id') && is_string($recordarme) && $recordarme !== '') {
+            $usuario = model(\App\Models\UsuarioModel::class)
+                ->where('token_recordarme', hash('sha256', $recordarme))
+                ->where('activo', 1)
+                ->first();
+
+            if ($usuario) {
+                session()->set([
+                    'usuario_id'     => $usuario['id'],
+                    'usuario_nombre' => $usuario['nombre'],
+                ]);
+            } else {
+                delete_cookie('recordarme');
+            }
+        }
+
         // Preload any models, libraries, etc, here.
         // $this->session = service('session');
     }

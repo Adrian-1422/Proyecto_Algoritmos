@@ -6,4 +6,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Inicio::index');
 $routes->get('idioma/(:segment)', 'Inicio::idioma/$1');
 $routes->match(['GET', 'POST'], 'registro', 'Registro::index');
+$routes->get('entrar', 'Acceso::entrar');
+$routes->post('entrar', 'Acceso::autenticar');
+$routes->get('salir', 'Acceso::salir');
 $routes->get('activar/(:segment)', 'Acceso::activar/$1');
