@@ -26,6 +26,7 @@
             <?= esc(lang('App.recordarme')) ?>
         </label>
     </div>
+    <p><a href="<?= site_url('recuperar') ?>"><?= esc(lang('App.olvide')) ?></a></p>
     <button class="boton" type="submit"><?= esc(lang('App.entrar')) ?></button>
     <a class="boton cancelar" href="<?= site_url('/') ?>"><?= esc(lang('App.cancelar')) ?></a>
 </form>
