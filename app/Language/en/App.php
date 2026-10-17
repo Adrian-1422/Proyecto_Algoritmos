@@ -6,6 +6,7 @@ return [
     'entrar'              => 'Log in',
     'salir'               => 'Log out',
     'bienvenida'          => 'Welcome',
+    'mensajeBienvenida'   => 'Organize and check your school tasks',
     'hola'                => 'Hello',
     'nombre'              => 'Name',
     'correo'              => 'Email',
