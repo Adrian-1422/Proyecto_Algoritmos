@@ -18,6 +18,7 @@ class UsuarioModel extends Model
         'token_recordarme',
         'token_recuperacion',
         'recuperacion_expira',
+        'foto',
     ];
     protected $useTimestamps = true;
     protected $createdField  = 'creado_en';

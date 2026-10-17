@@ -86,6 +86,16 @@ h1 {
     background: #8ec8f0;
 }
 
+.foto {
+    display: block;
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    margin: 0 36px 12px;
+    border: 1px solid #222;
+    background: #ddd;
+}
+
 .datos,
 .acciones,
 .paginas,
